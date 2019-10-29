@@ -8,7 +8,23 @@ class CountryContainer extends Component{
       super(props);
   }
 
+fetchCountries(){
+  fetch(`https://restcountries.eu/rest/v2/all`)
+    .then(response => response.json())
+    .then(data =>
+    this.setState({
+      countries: data,
+isLoading: false,
+    })
+  )
 
+.catch(error => this.setState({ error, isLoading: false}));
+
+}
+
+componentDidMount(){
+  this.fetchCountries();
+}
 
 render(){
   return(
