@@ -3,12 +3,18 @@ import CountrySelect from '../components/CountrySelect';
 
 
 class CountryContainer extends Component{
-
   constructor(props){
       super(props);
+      this.state = {
+        countries: []
+      }
   }
 
-fetchCountries(){
+  componentDidMount(){
+    this.fetchCountries();
+  }
+
+  fetchCountries() {
   fetch(`https://restcountries.eu/rest/v2/all`)
     .then(response => response.json())
     .then(data =>
@@ -21,19 +27,16 @@ isLoading: false,
 .catch(error => this.setState({ error, isLoading: false}));
 
 }
-
-componentDidMount(){
-  this.fetchCountries();
-}
-
 render(){
   return(
     <div>
-    <h1>Hello World</h1>
-    <CountrySelect />
+    // <h1>Hello World</h1>
+    <CountrySelect countries={this.state.countries}/>
     </div>
   )
 }
 }
+
+
 
 export default CountryContainer
