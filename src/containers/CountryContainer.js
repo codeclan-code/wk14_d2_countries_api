@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CountrySelect from '../components/CountrySelect';
+import CountryDetail from '../components/CountryDetail';
 
 
 class CountryContainer extends Component{
@@ -32,6 +33,7 @@ render(){
     <div>
     // <h1>Hello World</h1>
     <CountrySelect countries={this.state.countries}/>
+    <CountryDetail></CountryDetail>
     </div>
   )
 }

@@ -2,20 +2,21 @@ import React, {Component} from 'react';
 
 class CountrySelect extends Component{
 
+  // this.handleChange = this.handleChange.bind(this);
+  //
+  // handleChange(event) {
+  //   this.setState({value: event.target.value});
+  // }
+
 
   render(){
     return (<div>
       <select>
       {this.props.countries.map((country, index) => (
-
         <option>{ country.name}</option>
-
       ))}
       </select>
       </div>
-
-
-
     )
 
     // for country in props.countries, take country.name and display
